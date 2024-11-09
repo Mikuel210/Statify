@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<python>
+
+url = statify.context["url"]
+
+statify.write(f"""
+
+<meta http-equiv="refresh" content="0; url={url}">
+
+<script type="text/javascript">
+    window.location.href = "{url}"
+</script>
+
+""")
+
+</python>
+
+<title>Redirect</title>

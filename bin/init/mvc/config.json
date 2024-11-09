@@ -1,0 +1,7 @@
+{
+    "controllers_path": "controllers",
+    "views_path": "views",
+    "public_path": "public",
+    "partials_path": "partials",
+    "entry_point": "home/index.html"
+}
