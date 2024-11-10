@@ -184,6 +184,7 @@ This file can overwrite default configuration values for this project only:
 - [ ] More templates
 - [ ] Installation wizard
 - [ ] More default functions
+- [ ] Better IDE integration
 
 See the [open issues](https://github.com/Mikuel210/Statify/issues) for a full list of proposed features and
 known issues.
