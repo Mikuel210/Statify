@@ -26,11 +26,6 @@
   <p align="center">
     A modern, highly customizable static site generator for Python
     <br />
-    <a href="https://github.com/Mikuel210/Statify"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/Mikuel210/Statify">View Demo</a>
-    ·
     <a href="https://github.com/Mikuel210/Statify/issues/new?labels=bug&template=bug-report---.md">Report Bug</a>
     ·
     <a href="https://github.com/Mikuel210/Statify/issues/new?labels=enhancement&template=feature-request---.md">Request Feature</a>
@@ -60,8 +55,6 @@
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
