@@ -136,7 +136,7 @@ for page in pages.iterdir():
 This compile file takes all templates from a directory and calls ``statify.compile`` to turn them into the final
 pages. The compile file is executed in a "virtual environment," which are executed in the project's temporary
 directory. The ``statify`` module is automatically imported for all virtual environments, and you are able to import
-other modules like ``constants`` or ``compiler``.
+other modules fro Statify like ``constants`` or ``compiler``.
 
 ``statify.compile`` takes a context dictionary. A context might include:
 
