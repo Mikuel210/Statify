@@ -8,6 +8,3 @@ ENCODING = "utf-8"
 INPUT_PATH_KEY = "input_path"
 OUTPUT_PATH_KEY = "output_path"
 VENV_TEMPLATE_KEY = "venv_template"
-
-MULTIPLE_LINE_SEPARATOR = "==="
-SINGLE_LINE_PREFIX = "==>"

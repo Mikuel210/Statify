@@ -30,6 +30,7 @@ def template_to_venv_content(context: dict) -> str:
 
     with open(input_path, 'r', encoding=ENCODING) as file:
         in_python_block = False
+        indentation_level = ""
 
         for line in file:
             parts = re.split(r'(<python>|</python>)', line)
@@ -39,13 +40,29 @@ def template_to_venv_content(context: dict) -> str:
 
                 if stripped_part == "<python>":
                     in_python_block = True
+
+                    # Capture indentation level from the original line
+                    indentation_level = re.match(r'\s*', part).group(0)
+
                 elif stripped_part == "</python>":
                     in_python_block = False
+
+                    # Reset indentation level
+                    indentation_level = ""
+
                 else:
                     if in_python_block:
-                        output += f"\n{part}\n"
+                        # Process each line within the Python block individually
+                        python_lines = part.splitlines()
+
+                        for python_line in python_lines:
+                            # Remove the indentation level from each line in the block
+                            stripped_line = python_line[len(indentation_level):] if python_line.startswith(
+                                indentation_level) else python_line
+                            
+                            output += f"{stripped_line}\n"
                     else:
-                        escaped_html = escape_string(stripped_part)
+                        escaped_html = escape_string(part.strip())
                         output += f'statify.write("{escaped_html}")\n'
 
     return output

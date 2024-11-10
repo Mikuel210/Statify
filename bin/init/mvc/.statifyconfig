@@ -2,5 +2,6 @@
     "compile_file": "compile_file.py",
     "temp_directory": "./temp/",
     "public_directory": "./public/",
+    "resources_directory": "__resources__",
     "debug": false
 }
