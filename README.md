@@ -145,7 +145,7 @@ other modules fro Statify like ``constants`` or ``compiler``.
 - ``venv_template``: The Python code to be executed before the code in the template. Both are executed in the same
   virtual environment, so the code in the page template is able to access the code in the virtual environment template.
 
-The context can also include other custom keys, which are accessible through the ``statify.context`` variable.
+The context can also include other custom keys, which are accessible through the ``statify.context`` dictionary.
 It is recommended to use ``statify.get_context_value``, ``statify.get_context_value_safe`` and
 ``statify.set_context_value`` instead of directly working with the variable.
 
