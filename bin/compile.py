@@ -30,12 +30,15 @@ def main():
         if file.suffix == ".py" or file.suffix == ".html":
             file.unlink()
 
+    resources_directory = get_configuration(RESOURCES_DIRECTORY_KEY)
+
     for file in public.iterdir():
         try:
             if file.is_file() or file.is_symlink():
                 os.unlink(file)
             elif file.is_dir():
-                rmtree(file)
+                if str(file) != os.path.join(public, resources_directory):
+                    rmtree(file)
         except PermissionError:
             pass
 

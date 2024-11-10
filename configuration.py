@@ -4,12 +4,14 @@ from constants import ENCODING
 COMPILE_FILE_KEY = "compile_file"
 TEMP_DIRECTORY_KEY = "temp_directory"
 PUBLIC_DIRECTORY_KEY = "public_directory"
+RESOURCES_DIRECTORY_KEY = "resources_directory"
 DEBUG_KEY = "debug"
 
 default_configuration = {
     COMPILE_FILE_KEY: "./compile_file.py",
     TEMP_DIRECTORY_KEY: "./temp/",
     PUBLIC_DIRECTORY_KEY: "./public/",
+    RESOURCES_DIRECTORY_KEY: "__resources__",
     DEBUG_KEY: False
 }
 

@@ -159,6 +159,12 @@ Templates get converted into virtual environments when they are compiled. All HT
 is written into the virtual environment with its indentation relative to the ``<python>`` tag. HTML code is
 turned into a ``statify.write`` call with no indentation.
 
+Useful functions for using in templates:
+
+- ``statify.write``: Writes content to the final page
+- ``statify.render_partial``: Compiles a template and writes it to the current page instead of to
+  a file
+
 ### Project configuration
 
 Statify projects can have a ``.statifyconfig`` file either in the root directory or in a ``config`` directory.

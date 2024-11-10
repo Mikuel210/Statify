@@ -15,16 +15,28 @@ def copy_contents(source, destination):
             shutil.copy2(src_path, dest_path)
 
 
+def get_correct_folder_name(parent_dir, target_folder_name):
+    target_folder_name = target_folder_name.lower()
+
+    for entry in listdir(parent_dir):
+        if path.isdir(os.path.join(parent_dir, entry)) and entry.lower() == target_folder_name:
+            return entry
+
+    return None
+
+
 def main():
+    init = path.abspath(path.join(path.dirname(__file__), f"./init/"))
+
     if len(argv) < 2:
         folder_name = "__default__"
     else:
-        folder_name = argv[1].lower()
-
-    init = path.abspath(path.join(path.dirname(__file__), f"./init/"))
+        folder_name = argv[1]
+        folder_name = get_correct_folder_name(init, folder_name)
+        
     folder = path.join(init, f"{folder_name}")
 
-    if not os.path.exists(folder):
+    if not path.exists(folder):
         print("Template wasn't found. Available templates: ", end="")
 
         templates = [name for name in listdir(init) if name != "__default__"]
