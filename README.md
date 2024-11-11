@@ -121,7 +121,7 @@ located in the project's temporary directory and executed from the project's roo
 environments automatically import the ``statify`` module, and are able to import other modules from Statify, such
 as ``constants`` or ``compiler``.
 
-You can execute a Python script as a virtual environment by calling ``statify.execute_venv``
+You can execute a Python script as a virtual environment by calling ``statify.execute_venv``.
 
 ### The compile file
 
