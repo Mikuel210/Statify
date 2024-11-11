@@ -114,6 +114,15 @@ You can create your own templates by placing them into the ``bin/init`` director
 
 Type ``statify init [template]`` to start a new project from a template.
 
+### Virual environments
+
+Virtual environments are a key part of understanding how Statify works. Virtual environments are Python scripts
+located in the project's temporary directory and executed from the project's root directory. All virtual
+environments automatically import the ``statify`` module, and are able to import other modules from Statify, such
+as ``constants`` or ``compiler``.
+
+You can execute a Python script as a virtual environment by calling ``statify.execute_venv``
+
 ### The compile file
 
 The compile file is executed when you run ``statify compile``. Its purpose is to get the required data and turn it
@@ -134,9 +143,8 @@ for page in pages.iterdir():
 ```
 
 This compile file takes all templates from a directory and calls ``statify.compile`` to turn them into the final
-pages. The compile file is executed in a "virtual environment," which are executed in the project's temporary
-directory. The ``statify`` module is automatically imported for all virtual environments, and you are able to import
-other modules fro Statify like ``constants`` or ``compiler``.
+pages. The compile file is executed in a virtual environment, so it automatically imports the ``statify``
+module.
 
 ``statify.compile`` takes a context dictionary. A context might include:
 
@@ -168,7 +176,9 @@ Useful functions for using in templates:
 ### Project configuration
 
 Statify projects can have a ``.statifyconfig`` file either in the root directory or in a ``config`` directory.
-This file can overwrite default configuration values for this project only:
+This file can override default configuration values for this project only.
+
+A ``.statifyconfig`` file is written in JSON. It can override the following settings:
 
 - ``compile_file``: The path to the compile file to be executed with ``statify compile``
 - ``temp_directory``: The directory to execute virtual environments in. All of its contents are deleted
@@ -191,6 +201,8 @@ This file can overwrite default configuration values for this project only:
 - [ ] Installation wizard
 - [ ] More default functions
 - [ ] Better IDE integration
+- [ ] Compile differences only
+- [ ] Auto compile on events (such as a database update)
 
 See the [open issues](https://github.com/Mikuel210/Statify/issues) for a full list of proposed features and
 known issues.
