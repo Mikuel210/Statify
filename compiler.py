@@ -42,7 +42,7 @@ def template_to_venv_content(context: dict) -> str:
                     in_python_block = True
 
                     # Capture indentation level from the original line
-                    indentation_level = re.match(r'\s*', part).group(0)
+                    indentation_level = re.match(r'\s*', line).group(0)
 
                 elif stripped_part == "</python>":
                     in_python_block = False
@@ -58,7 +58,7 @@ def template_to_venv_content(context: dict) -> str:
                         for python_line in python_lines:
                             # Remove the indentation level from each line in the block
                             stripped_line = python_line[len(indentation_level):] if python_line.startswith(
-                                indentation_level) else python_line
+                                indentation_level) else python_line.strip()
                             
                             output += f"{stripped_line}\n"
                     else:
@@ -71,7 +71,7 @@ def template_to_venv_content(context: dict) -> str:
 def execute_venv(content: str) -> None:
     content = f"""
 import sys
-sys.path.append("{INSTALLATION_PATH}")
+sys.path.append(r"{INSTALLATION_PATH}")
 
 import statify
 
