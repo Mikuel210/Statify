@@ -46,7 +46,7 @@ for controller in views.iterdir():
         if not view.is_file():
             continue
 
-        venv_template = application_controller_template + controller_template
+        venv_template = f"{application_controller_template}\n{controller_template}"
 
         statify.compile({
             "input_path": APPLICATION_VIEW_PATH,

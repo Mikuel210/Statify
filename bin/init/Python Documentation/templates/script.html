@@ -1,10 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    This is a thing
-</body>
-</html>
+<aside>
+
+    <python>
+
+    import json
+
+    with open("tree.json", 'r') as file:
+        tree = json.load(file)
+        statify.write(tree["tree"])
+
+    </python>
+
+</aside>
+
+<section class="main">
+
+    <python>
+
+    from pathlib import Path
+
+    script_content = statify.get_context_value("script_content")
+    script_filename = statify.get_context_value("script_filename")
+    summaries = extract_function_summaries(script_filename, script_content)
+
+    script_path = Path(script_filename)
+    statify.write(f"<h1>{script_path.stem}</h1>")
+
+    for function in summaries:
+        context = function.copy()
+        context["input_path"] = "partials/function.html"
+
+        statify.render_partial(context)
+
+    </python>
+
+</section>

@@ -9,6 +9,14 @@ from context_utilities import *
 
 
 def main(context: dict, log: bool = True) -> None:
+    """
+    Compiles a template into a finished page from a context.
+
+    :param context: The context to compile the template with
+    :param log: If set to true, it will log the compilation into the console
+    :return: None
+    """
+
     content = template_to_venv_content(context)
 
     execute_venv(f"""
@@ -71,7 +79,9 @@ def template_to_venv_content(context: dict) -> str:
 def execute_venv(content: str) -> None:
     content = f"""
 import sys
+import os
 sys.path.append(r"{INSTALLATION_PATH}")
+sys.path.append(os.path.join(os.path.dirname(__file__), ".."))
 
 import statify
 
@@ -86,7 +96,10 @@ import statify
     system("python " + venv_path)
 
     if not get_configuration(DEBUG_KEY):
-        remove(venv_path)
+        try:
+            remove(venv_path)
+        except:
+            pass
 
 
 def get_venv_template(context: dict) -> str:

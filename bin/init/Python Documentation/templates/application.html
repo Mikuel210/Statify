@@ -3,14 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+
+    <link rel="stylesheet" href="__resources__/style.css">
 </head>
 <body>
 
-        <python>
+<python>
 
-        print("hi")
+context = statify.context.copy()
+context["input_path"] = context["target_input_path"]
 
-        </python>
+statify.render_partial(context)
+
+</python>
 
 </body>
 </html>

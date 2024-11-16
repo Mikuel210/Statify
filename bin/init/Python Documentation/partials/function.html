@@ -1,0 +1,37 @@
+<python>
+
+name = statify.get_context_value("name")
+summary = statify.get_context_value("summary")
+parameters = statify.get_context_value("parameters")
+returns = statify.get_context_value("returns")
+
+</python>
+
+<div>
+  <h2><python>statify.write(name)</python></h2>
+
+  <p><python>statify.write(summary)</python></p>
+
+  <python>
+
+  if len(parameters) > 0:
+    statify.write("""
+    <h3>Parameters</h3>
+
+    <ul>
+    """)
+
+    for parameter in parameters:
+      statify.write(f'<li><b>{parameter["name"]}:</b> {parameter["description"]}</li>')
+
+    statify.write("</ul>")
+
+  </python>
+
+  <python>
+
+  if returns:
+    statify.write(f'<b>Returns:</b> {returns}')
+
+  </python>
+</div>
